@@ -24,7 +24,7 @@ under construction
         
         # source build/envsetup.sh
         
-        # brunch cm_k1_turbo-userdebug
+        # brunch cm_
 
 # MTK
 

@@ -111,19 +111,19 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mtp
 
 # NFC
-PRODUCT_PACKAGES += \
-    com.android.nfc_extras \
-    nfcstackp \
-    libmtknfc_dynamic_load_jni \
-    libnfc_mt6605_jni \
-    Nfc \
-    Tag
-
-PRODUCT_COPY_FILES += \
-    packages/apps/Nfc/migrate_nfc.txt:system/etc/updatecmds/migrate_nfc.txt \
-    frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml \
-    frameworks/native/data/etc/com.nxp.mifare.xml:system/etc/permissions/com.nxp.mifare.xml \
-    frameworks/native/data/etc/com.android.nfc_extras.xml:system/etc/permissions/com.android.nfc_extras.xml
+#PRODUCT_PACKAGES += \
+#    com.android.nfc_extras \
+#    nfcstackp \
+#    libmtknfc_dynamic_load_jni \
+#    libnfc_mt6605_jni \
+#    Nfc \
+#    Tag
+#
+#PRODUCT_COPY_FILES += \
+#    packages/apps/Nfc/migrate_nfc.txt:system/etc/updatecmds/migrate_nfc.txt \
+#    frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml \
+#    frameworks/native/data/etc/com.nxp.mifare.xml:system/etc/permissions/com.nxp.mifare.xml \
+#    frameworks/native/data/etc/com.android.nfc_extras.xml:system/etc/permissions/com.android.nfc_extras.xml
 
 # Torch
 PRODUCT_PACKAGES += \
@@ -155,10 +155,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 $(call inherit-product, build/target/product/full.mk)
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
-PRODUCT_NAME := full_k1_turbo
-PRODUCT_DEVICE := k1_turbo
+PRODUCT_NAME := full_enso
+PRODUCT_DEVICE := enso
 
-TARGET_SCREEN_HEIGHT := 1920
-TARGET_SCREEN_WIDTH := 1080
+TARGET_SCREEN_HEIGHT := 1280
+TARGET_SCREEN_WIDTH := 720
 
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
