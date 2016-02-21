@@ -4,11 +4,11 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # The gps config appropriate for this device
 $(call inherit-product, device/common/gps/gps_us_supl.mk)
 
-$(call inherit-product-if-exists, vendor/kingzone/k1_turbo/k1_turbo-vendor.mk)
+$(call inherit-product-if-exists, vendor/etuline/enso/enso-vendor.mk)
 
-DEVICE_PACKAGE_OVERLAYS += device/kingzone/k1_turbo/overlay
+DEVICE_PACKAGE_OVERLAYS += device/etuline/enso/overlay
 
-LOCAL_PATH := device/kingzone/k1_turbo
+LOCAL_PATH := device/etuline/enso
 ifeq ($(TARGET_PREBUILT_KERNEL),)
 	LOCAL_KERNEL := $(LOCAL_PATH)/kernel
 else
