@@ -65,7 +65,7 @@ COMMON_GLOBAL_CPPFLAGS += -DMTK_HARDWARE
 ADDITIONAL_DEFAULT_PROPERTIES += ro.mount.fs=EXT4
 
 # RIL
-#BOARD_RIL_CLASS := ../../../device/etuline/enso/ril/
+BOARD_RIL_CLASS := ../../../device/etuline/enso/ril/
 
 BOARD_CONNECTIVITY_VENDOR := MediaTek
 BOARD_CONNECTIVITY_MODULE := conn_soc
@@ -92,7 +92,7 @@ TARGET_RECOVERY_FSTAB := device/etuline/enso/rootdir/recovery.fstab
 BOARD_HAS_NO_SELECT_BUTTON := true
 
 # TWRP
-#RECOVERY_VARIANT=twrp
+RECOVERY_VARIANT=twrp
 DEVICE_RESOLUTION := 720x1280
 BOARD_HAS_LARGE_FILESYSTEM := true
 TW_NO_USB_STORAGE := true
