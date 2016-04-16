@@ -1,4 +1,5 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
+
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # The gps config appropriate for this device
@@ -9,6 +10,7 @@ $(call inherit-product-if-exists, vendor/etuline/enso/enso-vendor.mk)
 DEVICE_PACKAGE_OVERLAYS += device/etuline/enso/overlay
 
 LOCAL_PATH := device/etuline/enso
+
 ifeq ($(TARGET_PREBUILT_KERNEL),)
 	LOCAL_KERNEL := $(LOCAL_PATH)/kernel
 else
@@ -33,6 +35,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
     $(LOCAL_PATH)/audio/audio_policy.conf:system/etc/audio_policy.conf
 
+#VideoRec
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/mtk_omx_core.cfg:system/etc/mtk_omx_core.cfg
+
 # Wifi
 PRODUCT_PACKAGES += \
     libwpa_client \
@@ -40,6 +46,7 @@ PRODUCT_PACKAGES += \
     dhcpcd.conf \
     wpa_supplicant \
     wpa_supplicant.conf
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/hostapd/hostapd_default.conf:system/etc/hostapd/hostapd_default.conf \
     $(LOCAL_PATH)/configs/hostapd/hostapd.accept:system/etc/hostapd/hostapd.accept \
@@ -56,7 +63,8 @@ PRODUCT_PACKAGES += \
 
 # GPS
 PRODUCT_COPY_FILES += \
-     $(LOCAL_PATH)/configs/agps_profiles_conf2.xml:system/etc/agps_profiles_conf2.xml
+     $(LOCAL_PATH)/configs/agps_profiles_conf2.xml:system/etc/agps_profiles_conf2.xml \
+     $(LOCAL_PATH)/configs/gps.conf:system/etc/gps.conf
 
 # Keylayout
 PRODUCT_COPY_FILES += \
@@ -122,12 +130,12 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 #PRODUCT_COPY_FILES += \
 #    packages/apps/Nfc/migrate_nfc.txt:system/etc/updatecmds/migrate_nfc.txt \
 #    frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml \
-#    frameworks/native/data/etc/com.nxp.mifare.xml:system/etc/permissions/com.nxp.mifare.xml \
+    frameworks/native/data/etc/com.nxp.mifare.xml:system/etc/permissions/com.nxp.mifare.xml \
 #    frameworks/native/data/etc/com.android.nfc_extras.xml:system/etc/permissions/com.android.nfc_extras.xml
 
 # Torch
-PRODUCT_PACKAGES += \
-    Torch
+#PRODUCT_PACKAGES += \
+#    Torch
 
 # FM Radio
 PRODUCT_PACKAGES += \
@@ -139,15 +147,17 @@ PRODUCT_PACKAGES += \
     libfmmt6630 \
     libfmcust \
     libmtkplayer
+MTK_FM_SUPPORT := yes
+MTK_FM_RX_SUPPORT := yes
 
 # Smart Cover
-PRODUCT_PACKAGES += \
-    SmartCover
+#PRODUCT_PACKAGES += \
+#    SmartCover
 
 # Camera
-PRODUCT_PACKAGES += \
-    Snap
-	
+#PRODUCT_PACKAGES += \
+#    Snap
+
 # Set default player to AwesomePlayer
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.media.use-awesome=true
