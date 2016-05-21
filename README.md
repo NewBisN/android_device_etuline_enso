@@ -1,13 +1,13 @@
 ----Thanks for xen0n, who are contributing to the working CyanogenMod of MTK hardware.---
 # CyanogenMod 13.0
 
-This is a device tree for huawei g750t01 which is based on MT6592 SoC. Powered by ferhung.
+This is a device tree for Etuline Enso (ETL-S5084) which is based on MT6592 SoC. Powered by ferhung.
 # Build
 
 * init
   Sync CyanogenMod source:
 
-        # repo init -u git://github.com/ferhung-mtk/android.git -b cm-13.0        
+        # repo init -u git://github.com/NewBisN/android.git -b cm-13.0        
         # repo sync
 
 * full build
