@@ -1,34 +1,20 @@
+----Thanks for xen0n, who are contributing to the working CyanogenMod of MTK hardware.---
+# CyanogenMod 13.0
 
-under construction
-------------------------------------------------------------
-
+This is a device tree for huawei g750t01 which is based on MT6592 SoC. Powered by ferhung.
 # Build
 
-* Working
-  * Dual SIM
-  * Wifi
-  * Bluetooth
-  * Audio
-  * Sensors
-  * Camera (photo and video recording)
-  * GPS
-  * NFC
-  * OTG
-  * Tethering (Wifi, Bluetooth and USB)
+* init
+  Sync CyanogenMod source:
 
-* Compilation
-
-        # repo init -u git://github.com/fire855/android.git -b cm-12.1
-        
+        # repo init -u git://github.com/ferhung-mtk/android.git -b cm-13.0        
         # repo sync
+
+* full build
         
         # source build/envsetup.sh
-        
-        # brunch cm_
 
-# MTK
-
-Few words about mtk related binaries, services and migration peculiarities.
+        # brunch cm_g750t01-userdebug
 
 # Limitations
 
@@ -39,3 +25,9 @@ Services requires root:
   * surfaceflinger depends on sched_setscheduler calls, unable to change process priority from 'system' user (default user 'system')
 
   * mediaserver depends on /data/nvram folder access, unable to do voice calls from 'media' user (default user 'media')
+
+# In China, we must skip to get 204 from Google server.
+  * Change of Android 5.1 source to skip network validation in some environment like China can't connect to http://clients3.google.com/generate_204. 
+
+  To see: 
+    [Skip_network_validation](http://github.com/ferhung/Skip_network_validation)
